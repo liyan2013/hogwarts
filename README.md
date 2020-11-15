@@ -2,3 +2,6 @@
 
 ### python脚本编写实战(一)
 ./python01
+
+### python脚本编写实战(二)
+./python02
