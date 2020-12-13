@@ -8,3 +8,6 @@
 
 ### Pytest测试实战(一)
 ./pytest01
+
+### Pytest测试实战(二)
+./pytest02

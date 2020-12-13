@@ -3,14 +3,6 @@ import pytest
 from pytest01.calculator import Calculator
 
 
-def setup_module():
-    print("Setup Module")
-
-
-def teardown_module():
-    print("Teardown module")
-
-
 class TestCalc:
 
     cal = Calculator()
@@ -29,10 +21,32 @@ class TestCalc:
                                  (-1.3, -1.3, -2.6),
                                  (1, -1, 0)
                              ])
-    def test_add(self, a, b, expected):
-        print("开始计算")
+    def test_01_add(self, a, b, expected, config_test):
         actual = self.cal.add(a, b)
-        print("计算结束")
+        assert actual == expected
+
+    @pytest.mark.parametrize("a,b,expected",
+                             [
+                                 (1, 1, 0),
+                                 (1.1, 1.2, -0.1),
+                                 (-1, 1, -2),
+                                 (-1.3, -1.3, 0),
+                                 (1, -1, 2)
+                             ])
+    def test_02_sub(self, a, b, expected, config_test):
+        actual = self.cal.sub(a, b)
+        assert actual == expected
+
+    @pytest.mark.parametrize("a,b,expected",
+                             [
+                                 (2, 2, 4),
+                                 (1.1, 1.1, 1.21),
+                                 (-1, -1, 1),
+                                 (-1, 0, 0),
+                                 (1, -1, -1)
+                             ])
+    def test_03_mul(self, a, b, expected, config_test):
+        actual = self.cal.mul(a, b)
         assert actual == expected
 
     @pytest.mark.parametrize("a,b,expected",
@@ -44,8 +58,6 @@ class TestCalc:
                                  (-1.3, -1.3, 1),
                                  (1, 2, 0.5)
                              ])
-    def test_div(self, a, b, expected):
-        print("开始计算")
+    def test_04_div(self, a, b, expected, config_test):
         actual = self.cal.div(a, b)
-        print("计算结束")
         assert actual == expected
