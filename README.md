@@ -5,3 +5,6 @@
 
 ### python脚本编写实战(二)
 ./python02
+
+### Pytest测试实战(一)
+./pytest01
