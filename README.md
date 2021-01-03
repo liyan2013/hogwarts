@@ -11,3 +11,9 @@
 
 ### Pytest测试实战(二)
 ./pytest02
+
+### web 企业微信实战（一）
+./selenium01
+
+### web 企业微信实战（二）
+./selenium02
